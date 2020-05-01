@@ -7,7 +7,7 @@ p, div {
   user-select: none;
   }   
 
-.wapka {
+.button_header {
     width: 635px;
     height: 50px;
     background-color: aqua;
@@ -16,7 +16,7 @@ p, div {
     border : dotted 5px ;
 }
 
-.ekran {
+.screen {
     width: 430px;
     height: 500px;
     position: relative; /* Относительное позиционирование..для позиции обьекта внутри */
