@@ -36,7 +36,7 @@ function mooveSmile() {
         smile.style.top =
           randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
       }
-    }, 2000);
+    }, 700);    // through this time after pointing object moves
   };
 }
 
@@ -44,7 +44,7 @@ var intervalID; // should hang here because it is used by the stop function
 // function timer
 
 var milSec = 99;
-var sec = 19;
+var sec = 3;
 
 function timerF() {
   timer = document.getElementById("timer");
@@ -52,15 +52,12 @@ function timerF() {
   intervalID = setInterval(function () {
     milSec--;
 
-    if ((sec == 0) & (milSec == 0)) {
-      alert("time out");
-      clearInterval(intervalID);
+    if ((sec == 0) && (milSec == 0)) {
+     stop()
     }
 
-    // if ((milSec == 0 & Sec !== 0)) {
-    if ((milSec == 0) & (sec > 0)) {
+    if ((milSec == 0) &&(sec > 0)) {
       sec--;
-
       milSec = 99;
     }
 
@@ -68,23 +65,31 @@ function timerF() {
       timer.style.color = "red";
     }
 
-    if ((milSec < 10) & (sec < 10)) {
+    if ((milSec < 10) &&(sec < 10)) {
       timer.innerText = "0" + sec + " : " + "0" + milSec;
     }
 
-    if ((milSec >= 10) & (sec < 10)) {
+    if ((milSec >= 10) &&(sec < 10)) {
       timer.innerText = "0" + sec + " : " + milSec;
     }
 
-    if ((milSec < 10) & (sec >= 10)) {
+    if ((milSec < 10) &&(sec >= 10)) {
       timer.innerText = sec + " : " + "0" + milSec;
     }
 
-    if ((milSec >= 10) & (sec >= 10)) {
+    if ((milSec >= 10) &&(sec >= 10)) {
       timer.innerText = sec + " : " + milSec;
     }
   }, 10);
+
+  
 }
+
+function stop() {
+    clearInterval(intervalID);
+    alert("time out");
+}
+
 
 // counting clicks on and past a goal
 function summClick() {
@@ -96,8 +101,21 @@ function summClick() {
   var pnl = document.getElementById("pnl");
   pnlE = 10; // points to Next Level
 
-  smile.onclick = function myFunction() {
+  smile.onclick = function myFunction(e) {
     //hit counter
+
+        // smile.style.position = "absolute";
+        // moveAt(e);
+  
+        // function moveAt(e) {
+        //   var screen = document.getElementById("screen");
+  
+        //   smile.style.left =
+        //     randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
+        //   smile.style.top =
+        //     randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
+        // }
+      
 
     scoreSum = scoreSum + levelNel * 10;
     pnlE--; //reducing the number of clicks to the next level
@@ -114,8 +132,9 @@ function summClick() {
     pnl.innerText = pnlE;
     inc2--;
   };
+
   var inc2 = 1; //a counter of misses
-  screen.onclick = function myFunction2() {
+  screen.onclick = function () {
     missN.innerText = inc2++;
 
     scoreSum = scoreSum - levelNel;

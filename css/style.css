@@ -1,4 +1,4 @@
-/* тут запрет на выделение текста */
+/* then a ban on text selection */
 p, div {
   -moz-user-select: none;
   -ms-user-select: none;
@@ -19,8 +19,8 @@ p, div {
 .screen {
     width: 430px;
     height: 500px;
-    position: relative; /* Относительное позиционирование..для позиции обьекта внутри */
-    background: #7f73e6; /* Цвет фона */
+    position: relative; /* relative positioning ..for the position of the object inside */
+    background: #7f73e6; /* Background color */
    
 margin: 5px;
 }
@@ -30,7 +30,7 @@ margin: 5px;
     height: 500px;
     background-color: blueviolet;
 
-    position: absolute;  /* задача позиции относительно экрана */
+    position: absolute;  /*  position relative to the screen */
     right: -215px; 
  
 }
@@ -72,9 +72,9 @@ margin: 5px;
 
 .smileAnimation {
 
-    position: absolute; /* Абсолютное позиционирование */
-    bottom: 15px; /* Положение от нижнего края */
-    right: 15px; /* Положение от правого края */
+    position: absolute; /* absolute positioning */
+    bottom: 15px; /* The position of the lower edge */
+    right: 15px; /* The position from the right edge */
 
 
     animation: 1s linear 0s normal none infinite running smileAnimation;
