@@ -1,8 +1,3 @@
-function start() {
-  timerF();
-  summClick();
-  mooveSmile();
-}
 
 // function ready to start
 button_header.onclick = function () {
@@ -19,13 +14,15 @@ function randomInteger(min, max) {
   return Math.round(rand);
 }
 
+var intervalID;
+
 function mooveSmile() {
   var smile = document.getElementById("smile");
   // the function of moving the smile 2 seconds after hovering over it
   smile.onmouseover = function (e) {
     // 1. track the hover on the smile
     intervalID = setTimeout(function () {
-      smile.style.position = "absolute";
+      // smile.style.position = "absolute";
       moveAt(e);
 
       function moveAt(e) {
@@ -36,11 +33,11 @@ function mooveSmile() {
         smile.style.top =
           randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
       }
-    }, 700);    // through this time after pointing object moves
+    }, 700); // through this time after pointing object moves
   };
 }
 
-var intervalID; // should hang here because it is used by the stop function
+var intervalID2; // should hang here because it is used by the stop function
 // function timer
 
 var milSec = 99;
@@ -49,14 +46,14 @@ var sec = 3;
 function timerF() {
   timer = document.getElementById("timer");
 
-  intervalID = setInterval(function () {
+  intervalID2 = setInterval(function () {
     milSec--;
 
-    if ((sec == 0) && (milSec == 0)) {
-     stop()
+    if (sec == 0 && milSec == 0) {
+      stop();
     }
 
-    if ((milSec == 0) &&(sec > 0)) {
+    if (milSec == 0 && sec > 0) {
       sec--;
       milSec = 99;
     }
@@ -65,31 +62,28 @@ function timerF() {
       timer.style.color = "red";
     }
 
-    if ((milSec < 10) &&(sec < 10)) {
+    if (milSec < 10 && sec < 10) {
       timer.innerText = "0" + sec + " : " + "0" + milSec;
     }
 
-    if ((milSec >= 10) &&(sec < 10)) {
+    if (milSec >= 10 && sec < 10) {
       timer.innerText = "0" + sec + " : " + milSec;
     }
 
-    if ((milSec < 10) &&(sec >= 10)) {
+    if (milSec < 10 && sec >= 10) {
       timer.innerText = sec + " : " + "0" + milSec;
     }
 
-    if ((milSec >= 10) &&(sec >= 10)) {
+    if (milSec >= 10 && sec >= 10) {
       timer.innerText = sec + " : " + milSec;
     }
   }, 10);
-
-  
 }
 
 function stop() {
-    clearInterval(intervalID);
-    alert("time out");
+  clearInterval(intervalID2);
+  alert("time out");
 }
-
 
 // counting clicks on and past a goal
 function summClick() {
@@ -104,18 +98,17 @@ function summClick() {
   smile.onclick = function myFunction(e) {
     //hit counter
 
-        // smile.style.position = "absolute";
-        // moveAt(e);
-  
-        // function moveAt(e) {
-        //   var screen = document.getElementById("screen");
-  
-        //   smile.style.left =
-        //     randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
-        //   smile.style.top =
-        //     randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
-        // }
-      
+    // smile.style.position = "absolute";
+    // moveAt(e);
+
+    // function moveAt(e) {
+    //   var screen = document.getElementById("screen");
+
+    //   smile.style.left =
+    //     randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
+    //   smile.style.top =
+    //     randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
+    // }
 
     scoreSum = scoreSum + levelNel * 10;
     pnlE--; //reducing the number of clicks to the next level
@@ -140,4 +133,11 @@ function summClick() {
     scoreSum = scoreSum - levelNel;
     scoreN.innerText = scoreSum;
   };
+}
+
+
+function start() {
+  timerF();
+  summClick();
+  mooveSmile();
 }
