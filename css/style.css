@@ -1,15 +1,26 @@
 /* then a ban on text selection */
-p,
-div {
+  div {
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   -webkit-user-select: none;
   user-select: none;
 }
+p  {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 10px;
+}
 
+.header{
+  font-weight: bold;
+}
 .button_header {
-  width: 635px;
+  /* width: 560px; */
+  width: 100%;
   height: 50px;
   background-color: aqua;
   text-align: center;
@@ -18,32 +29,27 @@ div {
 }
 
 .screen {
-  /* width: 70%;
-  height: 100%; */
-  width: 350px;
-  height: 350px;
-
-  position: relative; /* relative positioning ..for the position of the object inside */
-  background: #7f73e6; /* Background color */
-
-  margin: 5px;
+width: 70%;
+    height: 500px;
+    position: relative;
+    background: #7f73e6;
+    margin: 5px;
 }
 
 .panel {
   width: 200px;
-    height: 500px;
+  height: 500px;
   /* width: 60%;
   height: 90%; */
-
   background-color: blueviolet;
-
-  position: absolute; /*  position relative to the screen */
+  position: absolute;
+  /*  position relative to the screen */
   right: -215px;
 }
 
 .mini-block {
-  width: 95%;
-  height: 15.5%;
+  /* width: 95%; */
+  height: 14%;
   background-color: rgb(31, 223, 89);
   text-align: center;
   font-size: 22px;
@@ -57,7 +63,7 @@ div {
 
   animation: 1s linear 0s normal none infinite running smileAnimation;
   -webkit-animation: 1s linear 0s normal none infinite running smileAnimation;
-  width: 100px;
+  width: 70px;
 }
 
 @keyframes smileAnimation {
