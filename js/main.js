@@ -1,10 +1,13 @@
+var wWidth = window.innerWidth;
+var wHeight = window.innerHeight;
 
 // function ready to start
 button_header.onclick = function () {
-  // var isStart222 = confirm("Lets Start ?");
-  // if (isStart222 == true) {
-  start();
-  // }
+   
+    timerF(  sec = 3, milSec = 99 );
+    summClick();
+    mooveSmile();
+ 
 };
 
 // function for the calculated numbers of randomly within certain limits
@@ -21,29 +24,27 @@ function mooveSmile() {
   // the function of moving the smile 2 seconds after hovering over it
   smile.onmouseover = function (e) {
     // 1. track the hover on the smile
-    intervalID = setTimeout(function () {
-      // smile.style.position = "absolute";
-      moveAt(e);
-
-      function moveAt(e) {
-        var screen = document.getElementById("screen");
-
-        smile.style.left =
-          randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
-        smile.style.top =
-          randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
-      }
+    intervalID = setTimeout(function () { 
+      moveAt(e); 
     }, 700); // through this time after pointing object moves
   };
+}
+
+function moveAt(e) {
+  var screen = document.getElementById("screen");
+
+  smile.style.left =
+    randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
+  smile.style.top =
+    randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
 }
 
 var intervalID2; // should hang here because it is used by the stop function
 // function timer
 
-var milSec = 99;
-var sec = 3;
 
-function timerF() {
+
+function timerF(  sec = 3, milSec = 99) {
   timer = document.getElementById("timer");
 
   intervalID2 = setInterval(function () {
@@ -97,19 +98,7 @@ function summClick() {
 
   smile.onclick = function myFunction(e) {
     //hit counter
-
-    // smile.style.position = "absolute";
-    // moveAt(e);
-
-    // function moveAt(e) {
-    //   var screen = document.getElementById("screen");
-
-    //   smile.style.left =
-    //     randomInteger(1, screen.clientWidth - smile.clientWidth) + "px";
-    //   smile.style.top =
-    //     randomInteger(1, screen.clientHeight - smile.clientWidth) + "px";
-    // }
-
+  
     scoreSum = scoreSum + levelNel * 10;
     pnlE--; //reducing the number of clicks to the next level
 
@@ -129,15 +118,14 @@ function summClick() {
   var inc2 = 1; //a counter of misses
   screen.onclick = function () {
     missN.innerText = inc2++;
-
+    // console.log("123")
+    // console.log(inc2)
     scoreSum = scoreSum - levelNel;
     scoreN.innerText = scoreSum;
+    // console.log(scoreSum)
+    // console.log(scoreN.innerText)
   };
 }
 
 
-function start() {
-  timerF();
-  summClick();
-  mooveSmile();
-}
+

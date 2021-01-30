@@ -1,101 +1,79 @@
 /* then a ban on text selection */
-p, div {
+p,
+div {
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  }   
+}
 
 .button_header {
-    width: 635px;
-    height: 50px;
-    background-color: aqua;
-    text-align: center;
-    font-size: 42px;
-    border : dotted 5px ;
+  width: 635px;
+  height: 50px;
+  background-color: aqua;
+  text-align: center;
+  font-size: 42px;
+  border: dotted 5px;
 }
 
 .screen {
-    width: 430px;
-    height: 500px;
-    position: relative; /* relative positioning ..for the position of the object inside */
-    background: #7f73e6; /* Background color */
-   
-margin: 5px;
+  /* width: 70%;
+  height: 100%; */
+  width: 350px;
+  height: 350px;
+
+  position: relative; /* relative positioning ..for the position of the object inside */
+  background: #7f73e6; /* Background color */
+
+  margin: 5px;
 }
 
 .panel {
-    width: 200px;
+  width: 200px;
     height: 500px;
-    background-color: blueviolet;
+  /* width: 60%;
+  height: 90%; */
 
-    position: absolute;  /*  position relative to the screen */
-    right: -215px; 
- 
+  background-color: blueviolet;
+
+  position: absolute; /*  position relative to the screen */
+  right: -215px;
 }
-
 
 .mini-block {
-    width: 95%;
-    height: 15.5%;
-    background-color: rgb(31, 223, 89);
-    text-align: center;
-    font-size: 22px;
-    margin: 5px;
+  width: 95%;
+  height: 15.5%;
+  background-color: rgb(31, 223, 89);
+  text-align: center;
+  font-size: 22px;
+  margin: 5px;
 }
-
-
-
-
-/* #block3 {
-    border: 3px solid black;
-    width: 100px;
-    height: 50px;
-    margin: 20px;
-    -o-transition: transform 3s linear;
-    -ms-transition: transform 3s linear;
-    -moz-transition: transform 3s linear;
-    -webkit-transition: transform 3s linear;
-    transition: transform 3s linear;
-}
-#block3:hover {
-    -o-transform: rotate(1turn);
-    -ms-transform: rotate(1turn);
-    -moz-transform: rotate(1turn);
-    -webkit-transform: rotate(1turn);
-    transform: rotate(1turn);
-
-    border: 3px solid red;
-    color: red;
-} */
 
 .smileAnimation {
+  position: absolute; /* absolute positioning */
+  bottom: 15px; /* The position of the lower edge */
+  right: 15px; /* The position from the right edge */
 
-    position: absolute; /* absolute positioning */
-    bottom: 15px; /* The position of the lower edge */
-    right: 15px; /* The position from the right edge */
+  animation: 1s linear 0s normal none infinite running smileAnimation;
+  -webkit-animation: 1s linear 0s normal none infinite running smileAnimation;
+  width: 100px;
+}
 
-
-    animation: 1s linear 0s normal none infinite running smileAnimation;
-    -webkit-animation: 1s linear 0s normal none infinite running smileAnimation;
-    width: 100px;
+@keyframes smileAnimation {
+  0% {
+    transform: rotate(0deg);
   }
-
-  @keyframes smileAnimation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  100% {
+    transform: rotate(360deg);
   }
+}
 
-  @-webkit-keyframes smileAnimation {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+@-webkit-keyframes smileAnimation {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
